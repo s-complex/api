@@ -1,4 +1,6 @@
 {
+  "name": "s-complex-api",
+  "type": "module",
   "private": true,
   "scripts": {
     "build": "nitro build",

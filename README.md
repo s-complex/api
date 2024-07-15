@@ -1,3 +1,3 @@
-# Nitro starter
+# API
 
-Look at the [nitro quick start](https://nitro.unjs.io/guide#quick-start) to learn more how to get started.
+A simple api system that returns friends' list data, organization projects data and more from its domain. Powered by Nitro.
