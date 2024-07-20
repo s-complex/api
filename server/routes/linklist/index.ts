@@ -3,7 +3,7 @@ import yaml from "js-yaml";
 export default defineEventHandler(async (event) => {
   const file = yaml.load(
     await $fetch(
-      "https://friends-src.slirv.vip/list.yml", {
+      "https://friends-src.slirv.vip/list", {
         method: "GET",
         headers: {
             "User-Agent": "curl/8.2.1 (api.slirv.vip)"
@@ -14,7 +14,7 @@ export default defineEventHandler(async (event) => {
 
   file.forEach(item => {
     if (item.avatar) {
-      item.avatar = `https://friends-src.slirv.vip/img/${item.avatar}`;
+      item.avatar = `https://friends-src.slirv.vip/avatars/${item.avatar}`;
     }
   });
 
