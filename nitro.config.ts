@@ -16,7 +16,7 @@ export default defineNitroConfig({
       proxy: "https://i.yecdn.com/**",
     },
     "/fonts/**": {
-      proxy: "https://fonts.bunny.net/**",
+      proxy: "https://fonts.googleapis.com/**",
     },
   },
 });
