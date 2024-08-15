@@ -6,7 +6,7 @@ export default defineNitroConfig({
       cors: true,
       headers: {
         "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "GET,OPTIONS",
+        "Access-Control-Allow-Methods": "GET,POST,OPTIONS",
       },
     },
     "/photos/alice": {
