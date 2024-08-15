@@ -8,7 +8,7 @@ export default defineNitroConfig({
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "GET,POST,OPTIONS,HEAD",
         "Access-Control-Allow-Headers": "*",
-        "Access-Control-expose-headers": "*",
+        "Access-Control-Expose-Headers": "*",
         "Access-Control-Allow-Credentials": "true",
       },
     },
