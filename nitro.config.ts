@@ -1,4 +1,4 @@
-//https://nitro.unjs.io/config
+// https://nitro.unjs.io/config
 export default defineNitroConfig({
   srcDir: "server",
   routeRules: {
@@ -7,6 +7,7 @@ export default defineNitroConfig({
       headers: {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "GET,POST,OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type",
       },
     },
     "/photos/alice": {

@@ -1,16 +1,13 @@
-import { defineEventHandler, setHeader, readBody } from 'h3';
+import { defineEventHandler, setHeader, readBody } from "h3";
 
 export default defineEventHandler(async (event) => {
-  setHeader(event, 'Access-Control-Allow-Origin', '*');
-  setHeader(event, 'Access-Control-Allow-Methods', 'GET,POST,OPTIONS');
-  setHeader(event, 'Access-Control-Allow-Headers', 'Content-Type');
-
-  if (event.node.req.method === 'OPTIONS') {
-    setHeader(event, 'Access-Control-Allow-Origin', '*');
-    setHeader(event, 'Access-Control-Allow-Methods', 'GET,POST,OPTIONS');
-    setHeader(event, 'Access-Control-Allow-Headers', 'Content-Type');
-    return { status: 200 };
-  }
+  handleCors(event, {
+    origin: "*",
+    preflight: {
+      statusCode: 204,
+    },
+    methods: "*",
+  });
 
   const body = await readBody(event);
   const { url } = body;
