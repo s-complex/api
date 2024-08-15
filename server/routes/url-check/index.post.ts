@@ -1,12 +1,21 @@
-// server/api/check-status.post.ts
+import { defineEventHandler, setHeader, readBody } from 'h3';
+
 export default defineEventHandler(async (event) => {
-  const body = await readBody(event); // 读取请求体
-  const { url } = body; // 从请求体中获取 URL
+  setHeader(event, 'Access-Control-Allow-Origin', '*');
+  setHeader(event, 'Access-Control-Allow-Methods', 'GET,POST,OPTIONS');
+  setHeader(event, 'Access-Control-Allow-Headers', 'Content-Type');
+
+  if (event.node.req.method === 'OPTIONS') {
+    return { status: 200 };
+  }
+
+  const body = await readBody(event);
+  const { url } = body;
 
   try {
-    const response = await $fetch.raw(url); // 使用 $fetch.raw 获取完整响应
-    return { status: response.status }; // 返回 HTTP 状态码
+    const response = await $fetch.raw(url);
+    return { status: response.status };
   } catch (error) {
-    return { status: error.response?.status || 500 }; // 返回错误状态码
+    return { status: error.response?.status || 500 };
   }
 });
