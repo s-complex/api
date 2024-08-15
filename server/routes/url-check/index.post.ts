@@ -1,4 +1,15 @@
 export default defineEventHandler(async (event) => {
+  const didHandleCors = handleCors(event, {
+    origin: "*",
+    preflight: {
+      statusCode: 204,
+    },
+    methods: "*",
+  });
+  if (didHandleCors) {
+    return;
+  }
+
   const body = await readBody(event);
   const { url } = body;
 
