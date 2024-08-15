@@ -1,21 +1,24 @@
-import { defineEventHandler, setHeader, readBody } from "h3";
-
 export default defineEventHandler(async (event) => {
-  handleCors(event, {
+  const corsHandled = handleCors(event, {
     origin: "*",
+    methods: "*",
+    allowHeaders: ["Content-Type"],
     preflight: {
       statusCode: 204,
     },
-    methods: "*",
   });
+
+  if (corsHandled) {
+    return;
+  }
 
   const body = await readBody(event);
   const { url } = body;
 
   try {
     const response = await $fetch.raw(url);
-    return { status: response.status };
+    return { statusCode: response.status };
   } catch (error) {
-    return { status: error.response?.status || 500 };
+    return { statusCode: error.response?.status || 500 };
   }
 });

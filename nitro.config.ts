@@ -7,7 +7,9 @@ export default defineNitroConfig({
       headers: {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "GET,POST,OPTIONS",
-        "Access-Control-Allow-Headers": "Content-Type",
+        "Access-Control-Allow-Headers": "*",
+        "Access-Control-expose-headers": "*",
+        "Access-Control-Allow-Credentials": "true",
       },
     },
     "/photos/alice": {
