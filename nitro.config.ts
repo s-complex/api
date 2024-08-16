@@ -5,6 +5,9 @@ export default defineNitroConfig({
     "/**": {
       cors: true,
       headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "*",
+        "Access-Control-Allow-Headers": "*",
         "Access-Control-Expose-Headers": "*",
         "Access-Control-Allow-Credentials": "true",
       },
