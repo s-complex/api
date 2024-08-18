@@ -16,7 +16,7 @@ export default defineNitroConfig({
       proxy: "https://avatars.githubusercontent.com/u/81961962",
     },
     "/photos/yecdn/**": {
-      proxy: "https://i.yecdn.com/**",
+      proxy: "https://i.yecdn.com/images/**",
     },
   },
 });
