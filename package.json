@@ -9,7 +9,8 @@
     "preview": "node .output/server/index.mjs"
   },
   "devDependencies": {
-    "nitropack": "latest"
+    "nitropack": "latest",
+    "wrangler": "^3.79.0"
   },
   "dependencies": {
     "js-yaml": "^4.1.0"
